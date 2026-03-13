@@ -1,0 +1,53 @@
+'use client';
+
+import styles from './Footer.module.css';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className={styles.footer}>
+      <div className={styles.container}>
+        <div className={styles.socialLinks}>
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+            aria-label="GitHub"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+            aria-label="Twitter"
+          >
+            <FaTwitter />
+          </a>
+        </div>
+
+        <div className={styles.divider} />
+
+        <div className={styles.copyright}>
+          <p>
+            Built with <span className={styles.heart}>❤️</span> by Ajay S
+            <span className={styles.year}> © {currentYear}</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
