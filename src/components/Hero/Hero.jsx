@@ -16,6 +16,24 @@ export default function Hero() {
 
   return (
     <section id="hero" className={styles.hero}>
+      {/* Video Background */}
+      <video 
+        className={styles.videoBg}
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source 
+          src="https://videos.pexels.com/video-files/3194521/3194521-sd_640_360_24fps.mp4" 
+          type="video/mp4" 
+        />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Dark overlay for better text readability */}
+      <div className={styles.videoOverlay}></div>
+
       <div className={styles.floatingIcons}>
         <div className={styles.icon}>
           <FaReact />

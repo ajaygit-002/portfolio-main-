@@ -81,6 +81,97 @@
   align-items: center;
 }
 
+.colorPicker {
+  position: relative;
+}
+
+.colorButton {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.colorButton:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: #8b5cf6;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+}
+
+.colorMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: rgba(5, 8, 22, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 180px;
+  z-index: 1001;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.colorOption {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.8rem;
+  text-align: left;
+}
+
+.colorPreview {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.colorLabel {
+  flex-grow: 1;
+}
+
+.checkmark {
+  color: #a78bfa;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.colorOption:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateX(4px);
+}
+
+.colorOption.active {
+  border-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.15);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+}
+
 .iconButton {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -174,6 +265,31 @@
 
   .navIcons {
     gap: 0.5rem;
+  }
+
+  .colorButton {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .colorMenu {
+    min-width: 160px;
+    right: -40px;
+  }
+
+  .colorOption {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .colorPreview {
+    width: 18px;
+    height: 18px;
+  }
+
+  .checkmark {
+    font-size: 1rem;
   }
 
   .iconButton {
