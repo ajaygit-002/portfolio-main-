@@ -63,7 +63,7 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="content-shell">
         <div className="flex items-center justify-between h-16 md:h-18">
           {/* Logo */}
           <a href="#home" className="relative group" onClick={(e) => handleClick(e, '#home')}>
@@ -74,13 +74,13 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Links */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden xl:flex items-center gap-2 2xl:gap-3">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleClick(e, link.href)}
-                className="relative px-3 py-2 text-sm font-medium transition-colors duration-200 group"
+                className="relative px-2.5 2xl:px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-200 group"
                 style={{
                   color: activeSection === link.href.slice(1)
                     ? 'var(--accent)'
@@ -126,7 +126,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 rounded-xl transition-all duration-300"
+              className="xl:hidden p-2 rounded-xl transition-all duration-300"
               style={{
                 background: 'var(--glass-bg)',
                 border: '1px solid var(--glass-border)',
@@ -151,7 +151,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden glass"
+            className="xl:hidden overflow-hidden glass"
           >
             <div className="px-4 py-4 space-y-1">
               {navLinks.map((link, i) => (

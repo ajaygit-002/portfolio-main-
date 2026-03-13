@@ -13,7 +13,7 @@ export default function SectionWrapper({ children, id, className = '' }) {
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, ease: 'easeOut' }}
-        className="max-w-7xl mx-auto"
+        className="content-shell"
       >
         {children}
       </motion.div>
@@ -23,12 +23,12 @@ export default function SectionWrapper({ children, id, className = '' }) {
 
 export function SectionTitle({ title, subtitle }) {
   return (
-    <div className="text-center mb-16">
-      <h2 className="text-3xl md:text-5xl font-bold mb-4 gradient-text inline-block">
+    <div className="text-center mb-12 md:mb-14">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 gradient-text inline-block leading-tight">
         {title}
       </h2>
       {subtitle && (
-        <p className="text-[var(--text-secondary)] text-lg max-w-2xl mx-auto">
+        <p className="text-[var(--text-secondary)] text-base md:text-lg max-w-2xl mx-auto leading-relaxed px-2">
           {subtitle}
         </p>
       )}

@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 pt-20 pb-12 sm:px-6 md:pt-24"
     >
       {/* Gradient orbs */}
       <div className="absolute inset-0 z-0">
@@ -70,14 +70,14 @@ export default function Hero() {
       ))}
 
       {/* Main Content */}
-      <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-20 text-center w-full max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <p
-            className="text-sm md:text-base font-medium tracking-widest uppercase mb-4"
+            className="text-xs sm:text-sm md:text-base font-medium tracking-[0.22em] uppercase mb-4"
             style={{ color: 'var(--accent)' }}
           >
             Welcome to my portfolio
@@ -88,7 +88,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-5 md:mb-6"
         >
           Hi, I&apos;m{' '}
           <span className="gradient-text">Ajay S</span>
@@ -98,7 +98,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-xl sm:text-2xl md:text-3xl font-semibold mb-8"
+          className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 md:mb-8"
           style={{ color: 'var(--text-secondary)' }}
         >
           <TypeAnimation
@@ -119,7 +119,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-base md:text-lg max-w-2xl mx-auto mb-10"
+          className="text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed"
           style={{ color: 'var(--text-muted)' }}
         >
           Passionate about building cutting-edge web applications with modern
@@ -130,7 +130,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
         >
           <a
             href="#projects"
@@ -138,7 +138,7 @@ export default function Hero() {
               e.preventDefault();
               document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="group relative px-8 py-3.5 rounded-full font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            className="group relative w-full sm:w-auto px-8 py-3.5 rounded-full font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl"
             style={{
               background:
                 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))',
@@ -153,7 +153,7 @@ export default function Hero() {
           <a
             href="/resume.pdf"
             download
-            className="group px-8 py-3.5 rounded-full font-semibold transition-all duration-300 hover:scale-105 gradient-border"
+            className="group w-full sm:w-auto px-8 py-3.5 rounded-full font-semibold transition-all duration-300 hover:scale-105 gradient-border"
             style={{
               color: 'var(--text-primary)',
               background: 'var(--bg-card)',

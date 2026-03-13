@@ -61,6 +61,10 @@ body {
   overflow-x: hidden;
 }
 
+section {
+  width: 100%;
+}
+
 /* ── Scrollbar ── */
 ::-webkit-scrollbar {
   width: 6px;
@@ -115,12 +119,35 @@ body {
 }
 
 .section-padding {
-  padding: 6rem 1.5rem;
+  padding: 5.5rem 1rem;
 }
 
 @media (min-width: 768px) {
   .section-padding {
+    padding: 7rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
     padding: 8rem 2rem;
+  }
+}
+
+.content-shell {
+  width: min(1120px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .content-shell {
+    width: min(1120px, calc(100% - 3rem));
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-shell {
+    width: min(1120px, calc(100% - 4rem));
   }
 }
 
