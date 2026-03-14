@@ -6,10 +6,12 @@ import Experience from "@/components/Experience/Experience";
 import Certifications from "@/components/Certifications/Certifications";
 import Blog from "@/components/Blog/Blog";
 import Contact from "@/components/Contact/Contact";
+import AIAssistant from "@/components/AIAssistant/AIAssistant";
 
 export default function Home() {
   return (
     <>
+      <AIAssistant />
       <Hero />
 
       {/* Wave divider */}

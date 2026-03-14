@@ -1,54 +1,59 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import styles from './Skills.module.css';
+import { 
+  FaReact, FaNode, FaPython, FaGit, FaDocker, FaGithub, FaHtml5, FaDatabase, FaJs, FaCode
+} from 'react-icons/fa';
+import {
+  SiNextdotjs, SiTypescript, SiTailwindcss, SiExpress, SiMongodb, 
+  SiPostgresql, SiMysql, SiFirebase, SiGraphql, SiRedis
+} from 'react-icons/si';
 
 const skills = [
   {
     category: 'Frontend Development',
     items: [
-      { name: 'React', percentage: 90 },
-      { name: 'Next.js', percentage: 85 },
-      { name: 'JavaScript', percentage: 92 },
-      { name: 'CSS/SCSS', percentage: 88 },
-      { name: 'Tailwind CSS', percentage: 87 },
+      { name: 'React', icon: <FaReact /> },
+      { name: 'Next.js', icon: <SiNextdotjs /> },
+      { name: 'JavaScript', icon: <FaJs /> },
+      { name: 'TypeScript', icon: <SiTypescript /> },
+      { name: 'Tailwind CSS', icon: <SiTailwindcss /> },
     ],
   },
   {
     category: 'Backend Development',
     items: [
-      { name: 'Node.js', percentage: 85 },
-      { name: 'Express.js', percentage: 82 },
-      { name: 'MongoDB', percentage: 80 },
-      { name: 'PostgreSQL', percentage: 78 },
-      { name: 'REST APIs', percentage: 85 },
-    ],
-  },
-  {
-    category: 'Programming Languages',
-    items: [
-      { name: 'JavaScript', percentage: 92 },
-      { name: 'Python', percentage: 80 },
-      { name: 'TypeScript', percentage: 84 },
-      { name: 'HTML5', percentage: 95 },
-      { name: 'CSS3', percentage: 88 },
+      { name: 'Node.js', icon: <FaNode /> },
+      { name: 'Express.js', icon: <SiExpress /> },
+      { name: 'MongoDB', icon: <SiMongodb /> },
+      { name: 'PostgreSQL', icon: <SiPostgresql /> },
+      { name: 'Python', icon: <FaPython /> },
     ],
   },
   {
     category: 'Tools & Technologies',
     items: [
-      { name: 'Git/GitHub', percentage: 88 },
-      { name: 'Docker', percentage: 75 },
-      { name: 'Jest', percentage: 78 },
-      { name: 'VS Code', percentage: 95 },
-      { name: 'Figma', percentage: 72 },
+      { name: 'Git', icon: <FaGit /> },
+      { name: 'Docker', icon: <FaDocker /> },
+      { name: 'VS Code', icon: <FaCode /> },
+      { name: 'GitHub', icon: <FaGithub /> },
+      { name: 'HTML5', icon: <FaHtml5 /> },
+    ],
+  },
+  {
+    category: 'Databases & APIs',
+    items: [
+      { name: 'MySQL', icon: <SiMysql /> },
+      { name: 'Firebase', icon: <SiFirebase /> },
+      { name: 'REST API', icon: <FaDatabase /> },
+      { name: 'GraphQL', icon: <SiGraphql /> },
+      { name: 'Redis', icon: <SiRedis /> },
     ],
   },
 ];
 
 export default function Skills() {
-  const progressRefs = useRef([]);
-
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
@@ -58,17 +63,13 @@ export default function Skills() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const progressBar = entry.target;
-          const targetWidth = progressBar.dataset.width;
-          setTimeout(() => {
-            progressBar.style.width = targetWidth;
-          }, 100);
+          entry.target.style.animation = 'slideUp 0.8s ease-out';
         }
       });
     }, observerOptions);
 
-    progressRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+    document.querySelectorAll(`.${styles.skillItem}`).forEach((el) => {
+      observer.observe(el);
     });
 
     return () => observer.disconnect();
@@ -86,29 +87,18 @@ export default function Skills() {
           {skills.map((category, categoryIndex) => (
             <div key={categoryIndex} className={styles.skillCategory}>
               <h3 className={styles.categoryTitle}>{category.category}</h3>
-              {category.items.map((skill, skillIndex) => (
-                <div key={skillIndex} className={styles.skillItem}>
-                  <div className={styles.skillName}>
-                    <span>{skill.name}</span>
-                    <span className={styles.skillPercentage}>{skill.percentage}%</span>
+              <div className={styles.skillsItemGrid}>
+                {category.items.map((skill, skillIndex) => (
+                  <div key={skillIndex} className={styles.skillItem}>
+                    <div className={styles.skillIconWrapper}>
+                      <div className={styles.skillIcon}>
+                        {skill.icon}
+                      </div>
+                    </div>
+                    <h4 className={styles.skillName}>{skill.name}</h4>
                   </div>
-                  <div className={styles.progressBarContainer}>
-                    <div
-                      ref={(el) => {
-                        if (
-                          el &&
-                          !progressRefs.current.includes(el)
-                        ) {
-                          progressRefs.current.push(el);
-                        }
-                      }}
-                      className={styles.progressBar}
-                      style={{ width: '0%' }}
-                      data-width={`${skill.percentage}%`}
-                    />
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           ))}
         </div>
