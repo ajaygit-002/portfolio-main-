@@ -25,19 +25,33 @@
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  display: flex;
+  align-items: center;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
 }
 
-.logo:hover {
-  transform: scale(1.05);
+.logoIcon {
+  width: 44px;
+  height: 44px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.3));
+  animation: logoBlink 4s ease-in-out infinite;
+}
+
+.logo:hover .logoIcon {
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 16px rgba(139, 92, 246, 0.6)) drop-shadow(0 0 30px rgba(236, 72, 153, 0.3));
+}
+
+@keyframes logoBlink {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(139, 92, 246, 0.6)) drop-shadow(0 0 24px rgba(236, 72, 153, 0.25));
+  }
 }
 
 .navLinks {

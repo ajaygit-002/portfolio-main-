@@ -7,6 +7,7 @@ import Certifications from "@/components/Certifications/Certifications";
 import Blog from "@/components/Blog/Blog";
 import Contact from "@/components/Contact/Contact";
 import AIAssistant from "@/components/AIAssistant/AIAssistant";
+import ScrollReveal from "@/components/ScrollReveal/ScrollReveal";
 
 export default function Home() {
   return (
@@ -25,25 +26,39 @@ export default function Home() {
       </div>
 
       <div style={{ background: 'var(--bg-secondary)' }}>
-        <About />
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <About />
+        </ScrollReveal>
       </div>
 
-      <Skills />
+      <ScrollReveal variant="fadeUp" delay={0.1}>
+        <Skills />
+      </ScrollReveal>
 
       <div style={{ background: 'var(--bg-secondary)' }}>
-        <Projects />
+        <ScrollReveal variant="scaleUp" delay={0.1}>
+          <Projects />
+        </ScrollReveal>
       </div>
 
-      <Experience />
+      <ScrollReveal variant="fadeLeft" delay={0.1}>
+        <Experience />
+      </ScrollReveal>
 
       <div style={{ background: 'var(--bg-secondary)' }}>
-        <Certifications />
+        <ScrollReveal variant="fadeRight" delay={0.1}>
+          <Certifications />
+        </ScrollReveal>
       </div>
 
-      <Blog />
+      <ScrollReveal variant="blurIn" delay={0.1}>
+        <Blog />
+      </ScrollReveal>
 
       <div style={{ background: 'var(--bg-secondary)' }}>
-        <Contact />
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <Contact />
+        </ScrollReveal>
       </div>
     </>
   );

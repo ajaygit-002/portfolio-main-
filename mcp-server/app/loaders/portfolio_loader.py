@@ -10,6 +10,7 @@ class PortfolioLoader:
     def __init__(self, portfolio_path: str = "../src"):
         self.portfolio_path = portfolio_path
         self.about_data = self._load_about()
+        self.contact_data = self._load_contact()
         self.projects_data = self._load_projects()
         self.skills_data = self._load_skills()
         self.blog_data = self._load_blog_posts()
@@ -43,6 +44,20 @@ class PortfolioLoader:
                 "Performance optimization",
                 "Open source contributions"
             ]
+        }
+    
+    def _load_contact(self) -> Dict[str, Any]:
+        """Load Ajay's contact information."""
+        return {
+            "email": "ajay.dev@example.com",
+            "phone": "+91 98765 43210",
+            "location": "India",
+            "github": "https://github.com/ajaygit-002",
+            "linkedin": "https://linkedin.com/in/ajay-s-dev",
+            "twitter": "https://twitter.com/ajay_dev",
+            "website": "https://ajay-portfolio.vercel.app",
+            "availability": "Open to full-time, freelance, and collaboration opportunities",
+            "preferred_contact": "Email or LinkedIn for professional inquiries"
         }
     
     def _load_projects(self) -> List[Dict[str, Any]]:
@@ -314,6 +329,7 @@ class PortfolioLoader:
         """Get complete portfolio data."""
         return {
             "about": self.about_data,
+            "contact": self.contact_data,
             "projects": self.projects_data,
             "skills": self.skills_data,
             "blog_posts": self.blog_data,

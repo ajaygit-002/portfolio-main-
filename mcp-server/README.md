@@ -1,51 +1,70 @@
-# Portfolio MCP Server
+<p align="center">
+  <br />
+  <strong>
+    <span style="font-size:2em;">🅰</span>
+  </strong>
+  <br />
+  <h1 align="center">Portfolio MCP Server</h1>
+  <p align="center">
+    <em>AI-Powered Backend for Ajay's Developer Portfolio</em>
+  </p>
+  <p align="center">
+    <img src="https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+    <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+    <img src="https://img.shields.io/badge/LangChain-2B2D42?style=for-the-badge&logo=chainlink&logoColor=white" alt="LangChain" />
+    <img src="https://img.shields.io/badge/License-All%20Rights%20Reserved-8b5cf6?style=for-the-badge" alt="License" />
+  </p>
+</p>
 
-An intelligent AI-powered backend service for Ajay's developer portfolio. This Model Context Protocol (MCP) server provides advanced features like semantic search, project recommendations, skill analysis, and live coding statistics.
+---
 
-## Features
+## ⚡ Quick Start
 
-### 🤖 AI Portfolio Assistant
-- Interactive chat interface to ask questions about the portfolio
-- Intelligent responses about projects, skills, and experience
-- Powered by OpenAI GPT-3.5-turbo
+Get the MCP server running in 4 steps:
 
-### 📊 Dynamic Project Intelligence
-- Automatic project analysis and summary generation
-- Project recommendation system based on user interests
-- Project complexity analysis and improvement suggestions
+```bash
+# 1. Navigate to the server directory
+cd mcp-server
 
-### 🎯 Skill Intelligence Engine
-- Comprehensive skill analysis and categorization
-- Specialization identification
-- Technology proficiency levels
-- Related technology mapping
+# 2. Install dependencies
+pip install -r requirements.txt
 
-### 💼 Resume Query Engine
-- Ask questions about experience and qualifications
-- Recruiter-friendly responses
-- Quick access to professional information
+# 3. Configure environment (edit .env with your API keys)
+cp .env.example .env
 
-### 📈 Live Coding Statistics
-- GitHub repository statistics and analytics
-- Most used programming languages
-- Repository insights and metrics
-- Real-time profile data
+# 4. Start the server
+python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
 
-### 📝 Semantic Blog Search
-- Full-text search across blog posts
-- Tag-based filtering
-- Content discovery by topic
+> ✅ Server running at **http://localhost:8000**  
+> 📖 API Docs at **http://localhost:8000/docs**  
+> 📘 ReDoc at **http://localhost:8000/redoc**
 
-## Project Structure
+---
+
+## 🧠 Features
+
+| Feature | Description |
+|---------|-------------|
+| 🤖 **AI Chat Assistant** | Interactive chat powered by GPT / Groq / HuggingFace |
+| 📊 **Project Intelligence** | Auto-analysis, recommendations, complexity scoring |
+| 🎯 **Skill Engine** | Categorization, proficiency levels, specialty detection |
+| 💼 **Resume Query** | Recruiter-friendly Q&A about experience |
+| 📈 **Live Coding Stats** | GitHub analytics, language breakdown, repo insights |
+| 📝 **Semantic Blog Search** | Full-text search with tag filtering |
+
+---
+
+## 📂 Project Structure
 
 ```
 mcp-server/
 ├── app/
-│   ├── main.py                 # FastAPI application and routes
+│   ├── main.py                 # FastAPI app & routes
 │   ├── config/
 │   │   └── settings.py         # Configuration management
 │   ├── models/
-│   │   └── schemas.py          # Pydantic schemas for API
+│   │   └── schemas.py          # Pydantic models
 │   ├── services/
 │   │   ├── chat_service.py     # LLM-powered chat
 │   │   ├── github_service.py   # GitHub integration
@@ -55,156 +74,136 @@ mcp-server/
 │   │   └── portfolio_loader.py # Portfolio data loader
 │   └── utils/
 ├── requirements.txt            # Python dependencies
-├── .env.example               # Environment variables template
+├── .env.example                # Env template
 └── README.md
 ```
 
-## Installation
+---
 
-### 1. Install Python Dependencies
+## 🔑 API Keys Setup
 
-```bash
-cd mcp-server
-pip install -r requirements.txt
-```
-
-### 2. Configure Environment Variables
-
-Copy `.env.example` to `.env` and fill in your API keys:
-
-```bash
-cp .env.example .env
-```
-
-Edit `.env` with your credentials:
+### Option 1: Groq (Recommended — 100% Free)
 
 ```env
-# OpenAI API Key (get from https://platform.openai.com/api-keys)
-OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+GROQ_API_KEY=your_groq_api_key_here
+AI_PROVIDER=groq
+```
 
-# GitHub Token (get from https://github.com/settings/tokens)
-GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+> Get a free key at [console.groq.com/keys](https://console.groq.com/keys)
+
+### Option 2: HuggingFace (Free)
+
+```env
+HUGGINGFACE_API_KEY=your_token_here
+AI_PROVIDER=huggingface
+```
+
+> Get a free token at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
+
+### Option 3: OpenAI ($5 Free Credits)
+
+```env
+OPENAI_API_KEY=sk-proj-your_key_here
+AI_PROVIDER=openai
+```
+
+> Get a key at [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+
+### GitHub Integration (Optional)
+
+```env
+GITHUB_TOKEN=ghp_your_token_here
 GITHUB_USERNAME=yourusername
-
-# Server Configuration
-API_HOST=0.0.0.0
-API_PORT=8000
-DEBUG=False
-
-# Portfolio Owner Info
-OWNER_NAME=Ajay
-PORTFOLIO_NAME="Ajay's Portfolio"
-
-# CORS Settings (for Next.js frontend)
-CORS_ORIGINS=["http://localhost:3000", "http://localhost:3001"]
 ```
 
-### 3. Required API Keys
+> Create a token at [GitHub Settings > Tokens](https://github.com/settings/tokens) with `public_repo` scope
 
-#### OpenAI API Key
-1. Go to [OpenAI API Keys](https://platform.openai.com/api-keys)
-2. Create a new API key
-3. Add to `.env` as `OPENAI_API_KEY`
+---
 
-#### GitHub Token
-1. Go to [GitHub Settings > Developer Settings > Personal Access Tokens](https://github.com/settings/tokens)
-2. Create a new token with `public_repo` scope
-3. Add to `.env` as `GITHUB_TOKEN`
+## 🌐 API Endpoints
 
-## Running the Server
+### Health & Info
 
-### Development Mode
-
-```bash
-python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-```
-
-The server will start at `http://localhost:8000`
-
-### Production Mode
-
-```bash
-python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4
-```
-
-### Check Server Health
-
-```bash
-curl http://localhost:8000/health
-```
-
-## API Endpoints
-
-### Health Check
-- `GET /health` - Server health status
-- `GET /` - API documentation and available endpoints
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/health` | Server health check |
+| `GET` | `/` | API overview & endpoints list |
 
 ### Chat & AI
-- `POST /api/chat` - Chat with portfolio AI assistant
-  ```json
-  {
-    "query": "Tell me about Ajay's projects",
-    "conversation_history": []
-  }
-  ```
 
-### Skills & Expertise
-- `GET /api/skills-analysis` - Detailed skill breakdown
-- `GET /api/skills/specialties` - Identified specialty areas
-- `GET /api/experience` - Career experience timeline
-- `POST /api/resume-query` - Ask questions about resume
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/chat` | Chat with portfolio AI assistant |
+| `POST` | `/api/resume-query` | Ask resume/experience questions |
+
+```json
+// POST /api/chat
+{
+  "query": "Tell me about Ajay's projects",
+  "conversation_history": []
+}
+```
+
+### Skills & Experience
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/skills-analysis` | Detailed skill breakdown |
+| `GET` | `/api/skills/specialties` | Identified specialty areas |
+| `GET` | `/api/experience` | Career timeline |
 
 ### Projects
-- `GET /api/projects` - Get all projects
-- `POST /api/projects/recommend` - Get project recommendations
-  ```json
-  {
-    "interests": ["React", "Node.js", "full-stack"],
-    "limit": 5
-  }
-  ```
-- `GET /api/projects/{project_id}/analysis` - Analyze specific project
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/projects` | All projects |
+| `POST` | `/api/projects/recommend` | Recommendations by interest |
+| `GET` | `/api/projects/{id}/analysis` | Single project analysis |
+
+```json
+// POST /api/projects/recommend
+{
+  "interests": ["React", "Node.js", "full-stack"],
+  "limit": 5
+}
+```
 
 ### Blog & Content
-- `POST /api/blog-search` - Search blog posts
-  ```json
-  {
-    "query": "JavaScript performance",
-    "limit": 5
-  }
-  ```
-- `GET /api/blog` - Get all blog posts
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/blog-search` | Semantic blog search |
+| `GET` | `/api/blog` | All blog posts |
 
 ### Coding Stats
-- `GET /api/coding-stats` - Aggregated stats from GitHub, LeetCode, GeeksForGeeks
-- `GET /api/github-stats` - GitHub-specific statistics
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/coding-stats` | Aggregated stats |
+| `GET` | `/api/github-stats` | GitHub-specific stats |
 
 ### Portfolio Data
-- `GET /api/portfolio` - Complete portfolio data
-- `GET /api/certifications` - All certifications
 
-## Interactive API Documentation
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/portfolio` | Complete portfolio data |
+| `GET` | `/api/certifications` | All certifications |
 
-Once the server is running, visit:
-- **Swagger UI**: http://localhost:8000/docs
-- **ReDoc**: http://localhost:8000/redoc
+---
 
-## Frontend Integration
+## 🔌 Frontend Integration
 
-### Setup Next.js Frontend
-
-Add the MCP server API endpoint to your Next.js environment:
+Add the API endpoint to your Next.js app:
 
 ```env
-# .env.local
+# .env.local (in portfolio root)
 NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
-### Example API Call from Next.js
+Example usage:
 
 ```javascript
-// components/ChatAssistant.jsx
-const response = await fetch('http://localhost:8000/api/chat', {
+const res = await fetch('http://localhost:8000/api/chat', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
@@ -213,165 +212,99 @@ const response = await fetch('http://localhost:8000/api/chat', {
   })
 });
 
-const data = await response.json();
+const data = await res.json();
 console.log(data.response);
 ```
 
-## Data Management
+---
 
-### Portfolio Data Source
-
-The portfolio data is loaded from hardcoded structures in `app/loaders/portfolio_loader.py`. To update:
-
-1. Edit the `_load_projects()` method to update projects
-2. Edit the `_load_skills()` method to update skills
-3. Edit the `_load_blog_posts()` method to update blog posts
-4. Edit the `_load_experience()` method to update experience
-5. Edit the `_load_certifications()` method to update certifications
-
-### Vector Database
-
-FAISS vector database is automatically created in `./data/vector_db/` for semantic search capabilities.
-
-## Architecture
-
-### Services Layer
-
-1. **ChatService** - LLM-powered conversations using LangChain
-2. **GitHubService** - Async GitHub API integration
-3. **AnalyticsService** - Project analysis and recommendations
-4. **SkillAnalysisService** - Skill profiling and insights
-5. **VectorDatabase** - FAISS-based semantic search
-
-### Data Flow
+## 🏗️ Architecture
 
 ```
-Frontend Request
-    ↓
-FastAPI Routes
-    ↓
-Services Layer
-    ↓
-Portfolio Loader / External APIs
-    ↓
-Response (JSON)
+Frontend Request → FastAPI Routes → Services Layer → Portfolio Loader / External APIs → JSON Response
 ```
 
-## Security
+### Service Layer
 
-- CORS enabled for frontend origin (configurable)
-- Environment variables for sensitive data
-- No API keys exposed in code
-- Async requests for non-blocking operations
-
-## Performance
-
-- Async/await for concurrent requests
-- FAISS indexing for fast semantic search
-- Caching potential with Redis (future enhancement)
-- Connection pooling for external APIs
-
-## Extending the Server
-
-### Adding New Services
-
-1. Create a new file in `app/services/`
-2. Implement your service class
-3. Initialize in `app/main.py`
-4. Add FastAPI routes
-
-### Adding New API Endpoints
-
-```python
-@app.get("/api/new-feature")
-async def new_feature():
-    """Feature description."""
-    try:
-        # Implementation
-        return {"result": "success"}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-```
-
-### Integrating External Data
-
-Update `app/loaders/portfolio_loader.py` to fetch from:
-- Database
-- CMS
-- External APIs
-- File system
-
-## Troubleshooting
-
-### "OPENAI_API_KEY not found"
-- Check `.env` file exists in mcp-server directory
-- Verify OpenAI API key is valid
-- Restart the server
-
-### "GitHub service not available"
-- Ensure `GITHUB_TOKEN` and `GITHUB_USERNAME` are set in `.env`
-- Verify GitHub token has correct permissions
-- Check GitHub API rate limits: `curl -H "Authorization: token YOUR_TOKEN" https://api.github.com/rate_limit`
-
-### CORS Errors
-- Update `CORS_ORIGINS` in `.env` to include frontend URL
-- Frontend must match exactly (http://localhost:3000, not http://127.0.0.1:3000)
-
-### Port Already in Use
-```bash
-# Find process using port 8000
-lsof -i :8000  # macOS/Linux
-netstat -ano | findstr :8000  # Windows
-
-# Kill process
-kill -9 <PID>  # macOS/Linux
-taskkill /PID <PID> /F  # Windows
-```
-
-## Technology Stack
-
-- **Framework**: FastAPI
-- **Python**: 3.9+
-- **AI/ML**: LangChain, OpenAI GPT-3.5-turbo
-- **Vector DB**: FAISS
-- **Embeddings**: OpenAI Text Embedding
-- **HTTP Client**: AIOHTTP (async)
-- **API Documentation**: Pydantic, OpenAPI/Swagger
-- **Environment**: python-dotenv
-
-## Future Enhancements
-
-- [ ] Database integration (PostgreSQL/MongoDB)
-- [ ] Real-time WebSocket chat
-- [ ] Advanced semantic search with RAG
-- [ ] LeetCode integration
-- [ ] GeeksForGeeks statistics
-- [ ] Email notifications
-- [ ] Analytics dashboard
-- [ ] User authentication
-- [ ] Redis caching layer
-- [ ] Conversation history storage
-
-## Contributing
-
-For changes to the MCP server:
-1. Update relevant service files
-2. Add/update tests
-3. Update this README if adding features
-4. Test locally before deploying
-
-## License
-
-All rights reserved - Ajay's Portfolio
-
-## Support
-
-For issues or questions:
-1. Check troubleshooting section
-2. Review FastAPI documentation (https://fastapi.tiangolo.com)
-3. Check OpenAI documentation (https://platform.openai.com/docs)
+| Service | Purpose |
+|---------|---------|
+| `ChatService` | LLM-powered conversations via LangChain |
+| `GitHubService` | Async GitHub API integration |
+| `AnalyticsService` | Project analysis & recommendations |
+| `SkillAnalysisService` | Skill profiling & insights |
 
 ---
 
-**Last Updated**: March 2026
-**Version**: 1.0.0
+## 🖥️ Running Commands
+
+### Development
+
+```bash
+python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+### Production
+
+```bash
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4
+```
+
+### Health Check
+
+```bash
+curl http://localhost:8000/health
+```
+
+### Run Both Frontend + Backend
+
+```bash
+# Terminal 1 — MCP Server
+cd mcp-server && python -m uvicorn app.main:app --reload --port 8000
+
+# Terminal 2 — Next.js Frontend
+cd portfolio && npm run dev
+```
+
+---
+
+## 🛠️ Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| `OPENAI_API_KEY not found` | Check `.env` exists in `mcp-server/` and key is valid |
+| `GitHub service not available` | Set `GITHUB_TOKEN` & `GITHUB_USERNAME` in `.env` |
+| CORS errors | Update `CORS_ORIGINS` in `.env` to match your frontend URL |
+| Port already in use | Run `netstat -ano \| findstr :8000` then `taskkill /PID <PID> /F` |
+
+---
+
+## 🛡️ Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| Framework | FastAPI |
+| Runtime | Python 3.9+ |
+| AI/ML | LangChain, OpenAI / Groq / HuggingFace |
+| Vector DB | FAISS |
+| Embeddings | OpenAI / HuggingFace |
+| HTTP Client | AIOHTTP (async) |
+| Docs | Pydantic + OpenAPI/Swagger |
+
+---
+
+## 🚀 Future Roadmap
+
+- [ ] PostgreSQL / MongoDB integration
+- [ ] Real-time WebSocket chat
+- [ ] Advanced RAG pipeline
+- [ ] LeetCode API integration
+- [ ] Redis caching layer
+- [ ] Analytics dashboard
+- [ ] Conversation history storage
+
+---
+
+<p align="center">
+  <strong>Built with ❤️ by Ajay S</strong><br />
+  <em>Version 1.0.0 • Last Updated: March 2026</em>
+</p>
