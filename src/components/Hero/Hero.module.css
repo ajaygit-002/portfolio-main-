@@ -8,7 +8,16 @@
   overflow: hidden;
 }
 
-/* Video Background Styling */
+/* Video / Canvas Background Styling */
+.reactBitsBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
 .videoBg {
   position: absolute;
   top: 0;
@@ -37,10 +46,30 @@
 }
 
 .heroContent {
-  max-width: 900px;
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 20px;
   text-align: center;
   z-index: 10;
   position: relative;
+}
+
+.contentWrapper {
+  background: rgba(15, 22, 41, 0.4);
+  backdrop-filter: blur(12px);
+  padding: 60px 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInOut 1s ease-out;
+}
+
+@keyframes fadeInOut {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .titleSmall {
@@ -116,16 +145,42 @@
 }
 
 .secondaryButton {
-  border: 2px solid #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.4);
   color: #ffffff;
-  background: transparent;
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+  background: rgba(139, 92, 246, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .secondaryButton:hover {
-  background: rgba(139, 92, 246, 0.1);
+  background: rgba(139, 92, 246, 0.2);
   transform: translateY(-3px);
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+  border-color: #8b5cf6;
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+}
+
+.contactButton {
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.contactButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .floatingIcons {
@@ -208,13 +263,19 @@
     margin-bottom: 1rem;
   }
 
+  .contentWrapper {
+    padding: 40px 20px;
+    border-radius: 16px;
+  }
+
   .buttonGroup {
     flex-direction: column;
     align-items: center;
   }
 
   .primaryButton,
-  .secondaryButton {
+  .secondaryButton,
+  .contactButton {
     width: 100%;
     justify-content: center;
   }

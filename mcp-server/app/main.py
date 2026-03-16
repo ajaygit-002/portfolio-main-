@@ -4,18 +4,18 @@ from contextlib import asynccontextmanager
 import os
 from dotenv import load_dotenv
 
-from .config.settings import settings
-from .models.schemas import (
+from app.config.settings import settings  # type: ignore
+from app.models.schemas import (  # type: ignore
     ChatRequest, ChatResponse, RecommendationRequest, RecommendationResponse,
     SkillsAnalysisResponse, BlogSearchRequest, BlogSearchResponse,
     CodingStats, ResumeQueryRequest, ResumeQueryResponse
 )
-from .services.chat_service import ChatService
-from .services.github_service import GitHubService
-from .services.analytics_service import (
+from app.services.chat_service import ChatService  # type: ignore
+from app.services.github_service import GitHubService  # type: ignore
+from app.services.analytics_service import (  # type: ignore
     ProjectAnalysisService, SkillAnalysisService, RecommendationService
 )
-from .loaders.portfolio_loader import PortfolioLoader
+from app.loaders.portfolio_loader import PortfolioLoader  # type: ignore
 
 # Load environment variables
 load_dotenv()
@@ -248,7 +248,7 @@ async def search_blogs(request: BlogSearchRequest):
                 results.append(blog)
         
         return BlogSearchResponse(
-            results=results[:request.limit],
+            results=results[:request.limit],  # type: ignore
             search_query=request.query,
             total_results=len(results)
         )

@@ -1,0 +1,6 @@
+{
+  "source_directories": [
+    "mcp-server",
+    "mcp-server/app"
+  ]
+}

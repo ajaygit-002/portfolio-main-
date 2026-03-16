@@ -1,7 +1,8 @@
 'use client';
 
 import styles from './Footer.module.css';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -29,13 +30,13 @@ export default function Footer() {
             <FaLinkedin />
           </a>
           <a
-            href="https://twitter.com"
+            href="https://leetcode.com/"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialLink}
-            aria-label="Twitter"
+            aria-label="LeetCode"
           >
-            <FaTwitter />
+            <SiLeetcode />
           </a>
         </div>
 

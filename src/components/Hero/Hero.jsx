@@ -3,7 +3,9 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Hero.module.css';
-import { FaReact, FaNode, FaDatabase, FaCode } from 'react-icons/fa';
+import { FaReact, FaNode, FaDatabase, FaCode, FaEnvelope } from 'react-icons/fa';
+import ReactBitsBackground from './ReactBitsBackground';
+import { TypeAnimation } from 'react-type-animation';
 
 export default function Hero() {
   useEffect(() => {
@@ -16,23 +18,7 @@ export default function Hero() {
 
   return (
     <section id="hero" className={styles.hero}>
-      {/* Video Background */}
-      <video 
-        className={styles.videoBg}
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
-        <source 
-          src="https://videos.pexels.com/video-files/3194521/3194521-sd_640_360_24fps.mp4" 
-          type="video/mp4" 
-        />
-        Your browser does not support the video tag.
-      </video>
-
-      {/* Dark overlay for better text readability */}
-      <div className={styles.videoOverlay}></div>
+      <ReactBitsBackground />
 
       <div className={styles.floatingIcons}>
         <div className={styles.icon}>
@@ -50,21 +36,42 @@ export default function Hero() {
       </div>
 
       <div className={styles.heroContent}>
-        <p className={styles.titleSmall}>Welcome to my portfolio</p>
-        <h1 className={styles.title}>Hi, I'm Ajay S</h1>
-        <p className={styles.subtitle}>Full Stack Developer & Computer Science Enthusiast</p>
-        <p className={styles.description}>
-          I build modern web applications with cutting-edge technologies. Passionate about creating
-          scalable, responsive, and user-friendly digital experiences that make an impact.
-        </p>
+        <div className={styles.contentWrapper}>
+          <p className={styles.titleSmall}>Welcome to my portfolio</p>
+          <h1 className={styles.title}>Hi, I'm Ajay S</h1>
+          <p className={styles.subtitle}>
+            <TypeAnimation
+              sequence={[
+                'Full Stack Developer',
+                2000,
+                'Computer Science Enthusiast',
+                2000,
+                'Problem Solver',
+                2000,
+                'Software Engineer',
+                2000,
+              ]}
+              wrapper="span"
+              speed={50}
+              repeat={Infinity}
+            />
+          </p>
+          <p className={styles.description}>
+            I build modern web applications with cutting-edge technologies. Passionate about creating
+            scalable, responsive, and user-friendly digital experiences that make an impact.
+          </p>
 
-        <div className={styles.buttonGroup}>
-          <Link href="#projects" className={styles.primaryButton}>
-            View Projects
-          </Link>
-          <a href="/resume.pdf" className={styles.secondaryButton}>
-            Download Resume
-          </a>
+          <div className={styles.buttonGroup}>
+            <Link href="#projects" className={styles.primaryButton}>
+              View Projects
+            </Link>
+            <a href="/resume.pdf" className={styles.secondaryButton}>
+              Download Resume
+            </a>
+            <Link href="#contact" className={styles.contactButton}>
+              <FaEnvelope /> Contact Me
+            </Link>
+          </div>
         </div>
       </div>
 
