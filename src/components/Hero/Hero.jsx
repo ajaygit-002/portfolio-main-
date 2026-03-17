@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Hero.module.css';
 import { FaReact, FaNode, FaDatabase, FaCode, FaEnvelope } from 'react-icons/fa';
-import ReactBitsBackground from './ReactBitsBackground';
 import { TypeAnimation } from 'react-type-animation';
 
 export default function Hero() {
@@ -18,7 +17,16 @@ export default function Hero() {
 
   return (
     <section id="hero" className={styles.hero}>
-      <ReactBitsBackground />
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className={styles.videoBg}
+      >
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-blue-lines-4137-large.mp4" type="video/mp4" />
+      </video>
+      <div className={styles.videoOverlay}></div>
 
       <div className={styles.floatingIcons}>
         <div className={styles.icon}>
