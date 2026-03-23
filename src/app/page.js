@@ -25,7 +25,7 @@ export default function Home() {
         </svg>
       </div>
 
-      <div style={{ background: 'var(--bg-secondary)' }}>
+      <div className="section-shell alt">
         <ScrollReveal variant="fadeUp" delay={0.1}>
           <About />
         </ScrollReveal>
@@ -35,7 +35,7 @@ export default function Home() {
         <Skills />
       </ScrollReveal>
 
-      <div style={{ background: 'var(--bg-secondary)' }}>
+      <div className="section-shell alt">
         <ScrollReveal variant="scaleUp" delay={0.1}>
           <Projects />
         </ScrollReveal>
@@ -45,7 +45,7 @@ export default function Home() {
         <Experience />
       </ScrollReveal>
 
-      <div style={{ background: 'var(--bg-secondary)' }}>
+      <div className="section-shell alt">
         <ScrollReveal variant="fadeRight" delay={0.1}>
           <Certifications />
         </ScrollReveal>
@@ -55,7 +55,7 @@ export default function Home() {
         <Blog />
       </ScrollReveal>
 
-      <div style={{ background: 'var(--bg-secondary)' }}>
+      <div className="section-shell alt">
         <ScrollReveal variant="fadeUp" delay={0.1}>
           <Contact />
         </ScrollReveal>

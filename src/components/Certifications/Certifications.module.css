@@ -1,6 +1,6 @@
 .certifications {
   padding: 100px 20px;
-  background: linear-gradient(180deg, rgba(5, 8, 22, 0.5) 0%, rgba(15, 22, 41, 0.5) 100%);
+  background: linear-gradient(180deg, rgba(8, 20, 24, 0.5) 0%, rgba(18, 38, 53, 0.5) 100%);
 }
 
 .container {
@@ -17,7 +17,7 @@
 .sectionTitle {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
-  background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent-tertiary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -25,7 +25,7 @@
 }
 
 .sectionSubtitle {
-  color: #94a3b8;
+  color: var(--text-secondary);
   font-size: 1.1rem;
 }
 
@@ -51,14 +51,14 @@
 
 .certCard:hover {
   transform: translateY(-5px);
-  border-color: #8b5cf6;
-  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.3);
+  border-color: var(--accent-primary);
+  box-shadow: 0 10px 40px rgba(255, 107, 45, 0.3);
 }
 
 .certIcon {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #a78bfa;
+  color: var(--accent-tertiary);
 }
 
 .certName {
@@ -69,19 +69,19 @@
 }
 
 .certPlatform {
-  color: #94a3b8;
+  color: var(--text-secondary);
   font-size: 0.95rem;
   margin-bottom: 0.5rem;
 }
 
 .certDate {
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 0.85rem;
   margin-bottom: 1rem;
 }
 
 .certLink {
-  color: #a78bfa;
+  color: var(--accent-tertiary);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 600;
@@ -92,7 +92,7 @@
 }
 
 .certLink:hover {
-  color: #ec4899;
+  color: var(--accent-secondary);
   transform: translateX(4px);
 }
 
@@ -144,3 +144,4 @@
     font-size: 1.05rem;
   }
 }
+

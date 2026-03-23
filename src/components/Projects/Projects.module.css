@@ -1,6 +1,6 @@
 .projects {
   padding: 100px 20px;
-  background: linear-gradient(180deg, rgba(5, 8, 22, 0.5) 0%, rgba(15, 22, 41, 0.5) 100%);
+  background: linear-gradient(180deg, rgba(8, 20, 24, 0.5) 0%, rgba(18, 38, 53, 0.5) 100%);
 }
 
 .container {
@@ -17,7 +17,7 @@
 .sectionTitle {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
-  background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent-tertiary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -25,7 +25,7 @@
 }
 
 .sectionSubtitle {
-  color: #94a3b8;
+  color: var(--text-secondary);
   font-size: 1.1rem;
 }
 
@@ -49,14 +49,14 @@
 
 .projectCard:hover {
   transform: translateY(-8px);
-  border-color: #8b5cf6;
-  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.3);
+  border-color: var(--accent-primary);
+  box-shadow: 0 10px 40px rgba(255, 107, 45, 0.3);
 }
 
 .projectIcon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #a78bfa;
+  color: var(--accent-tertiary);
 }
 
 .projectTitle {
@@ -67,7 +67,7 @@
 }
 
 .projectDescription {
-  color: #94a3b8;
+  color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 1rem;
@@ -82,13 +82,13 @@
 }
 
 .techTag {
-  background: rgba(139, 92, 246, 0.2);
-  color: #a78bfa;
+  background: rgba(255, 107, 45, 0.2);
+  color: var(--accent-tertiary);
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  border: 1px solid rgba(255, 107, 45, 0.3);
 }
 
 .projectButtons {
@@ -114,25 +114,25 @@
 }
 
 .demoButton {
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   color: #ffffff;
-  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 5px 15px rgba(255, 107, 45, 0.3);
 }
 
 .demoButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.5);
+  box-shadow: 0 8px 20px rgba(255, 107, 45, 0.5);
 }
 
 .githubButton {
   background: transparent;
-  border: 1px solid #8b5cf6;
-  color: #a78bfa;
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-tertiary);
 }
 
 .githubButton:hover {
-  background: rgba(139, 92, 246, 0.1);
-  border-color: #a78bfa;
+  background: rgba(255, 107, 45, 0.1);
+  border-color: var(--accent-tertiary);
 }
 
 /* Mobile Styles */
@@ -183,3 +183,4 @@
     font-size: 2rem;
   }
 }
+

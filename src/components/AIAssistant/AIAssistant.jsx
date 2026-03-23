@@ -11,11 +11,11 @@ function AIcon({ size = 24, className = '' }) {
     <svg className={className} width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="aiIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#8b5cf6" />
-          <stop offset="100%" stopColor="#ec4899" />
+          <stop offset="0%" stopColor="#ff6b2d" />
+          <stop offset="100%" stopColor="#1dd3b0" />
         </linearGradient>
       </defs>
-      <circle cx="24" cy="24" r="22" fill="rgba(17,25,40,0.8)" stroke="url(#aiIconGrad)" strokeWidth="2" />
+      <circle cx="24" cy="24" r="22" fill="rgba(12,34,46,0.8)" stroke="url(#aiIconGrad)" strokeWidth="2" />
       <path
         d="M24 12L15 36H19.5L21.4 31H26.6L28.5 36H33L24 12ZM22.6 27.5L24 23L25.4 27.5H22.6Z"
         fill="url(#aiIconGrad)"

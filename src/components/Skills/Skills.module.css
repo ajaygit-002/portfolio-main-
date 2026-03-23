@@ -16,7 +16,7 @@
 .sectionTitle {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
-  background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent-tertiary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -24,7 +24,7 @@
 }
 
 .sectionSubtitle {
-  color: #94a3b8;
+  color: var(--text-secondary);
   font-size: 1.1rem;
 }
 
@@ -46,14 +46,14 @@
 
 .skillCategory:hover {
   transform: translateY(-5px);
-  border-color: #8b5cf6;
-  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.3);
+  border-color: var(--accent-primary);
+  box-shadow: 0 10px 40px rgba(255, 107, 45, 0.3);
 }
 
 .categoryTitle {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #a78bfa;
+  color: var(--accent-tertiary);
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -76,9 +76,9 @@
 }
 
 .skillItem:hover {
-  background: rgba(139, 92, 246, 0.1);
+  background: rgba(255, 107, 45, 0.1);
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.2);
+  box-shadow: 0 8px 20px rgba(255, 107, 45, 0.2);
   border-radius: 12px;
   padding: 1rem;
 }
@@ -89,17 +89,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(236, 72, 153, 0.1));
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: linear-gradient(135deg, rgba(255, 107, 45, 0.15), rgba(29, 211, 176, 0.1));
+  border: 1px solid rgba(255, 107, 45, 0.2);
   border-radius: 12px;
   transition: all 0.3s ease;
   padding: 8px;
 }
 
 .skillItem:hover .skillIconWrapper {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(236, 72, 153, 0.2));
-  border-color: #8b5cf6;
-  box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+  background: linear-gradient(135deg, rgba(255, 107, 45, 0.25), rgba(29, 211, 176, 0.2));
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 15px rgba(255, 107, 45, 0.3);
 }
 
 .skillIcon {
@@ -108,7 +108,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #a78bfa;
+  color: var(--accent-tertiary);
   font-size: 2.5rem;
   transition: all 0.3s ease;
 }
@@ -116,7 +116,7 @@
 .skillItem:hover .skillIcon {
   color: #c4b5fd;
   transform: scale(1.1);
-  filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.6));
+  filter: drop-shadow(0 0 8px rgba(255, 107, 45, 0.6));
 }
 
 .skillName {
@@ -209,3 +209,4 @@
     font-size: 0.8rem;
   }
 }
+

@@ -34,7 +34,7 @@ function ParticleSwarm(props) {
       <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
         <PointMaterial
           transparent
-          color="#a78bfa"
+          color="#ffd166"
           size={0.06}
           sizeAttenuation={true}
           depthWrite={false}
